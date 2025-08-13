@@ -22,7 +22,7 @@ class Order {
     public function addProduct(Product $product, int $quantity) {
         $product->reduceStock($quantity);
         $this->products[] = ['product' => $product, 'quantity' => $quantity];
-        $this->log("Added {$quantity} x {$product->getName()} to order");
+        $this->log("Addeظd {$quantity} x {$product->getName()} to order");
     }
 
     public function getTotal(): float {
