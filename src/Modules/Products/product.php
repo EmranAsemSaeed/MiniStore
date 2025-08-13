@@ -29,18 +29,24 @@ final class Product {
         return $this->stock;
     }
 
-    public function setPrice(float $price) {
-        if ($price <= 0) throw new \Exception("Price must be positive");
+    public function setPrice(float $price): void {
+        if ($price <= 0) {
+            throw new \Exception("Price must be positive");
+        }
         $this->price = $price;
     }
 
-    public function setStock(int $stock) {
-        if ($stock < 0) throw new \Exception("Stock cannot be negative");
+    public function setStock(int $stock): void {
+        if ($stock < 0) {
+            throw new \Exception("Stock cannot be negative");
+        }
         $this->stock = $stock;
     }
 
-    public function reduceStock(int $quantity) {
-        if ($quantity > $this->stock) throw new \Exception("Insufficient stock");
+    public function reduceStock(int $quantity): void {
+        if ($quantity > $this->stock) {
+            throw new \Exception("Insufficient stock");
+        }
         $this->stock -= $quantity;
         $this->log("Stock reduced by $quantity for {$this->name}");
     }
